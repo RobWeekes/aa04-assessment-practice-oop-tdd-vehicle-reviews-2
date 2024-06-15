@@ -1,6 +1,5 @@
 const Vehicle = require('./vehicle');
 const Tester = require('./tester');
-const { __esModule } = require('chai/chai.js');
 
 class Review {
     constructor(vehicle, tester, starRating, text) {
@@ -10,13 +9,22 @@ class Review {
         this.text = text;
     }
 
+    // INSTANCE METHODS
     addReview() {   // (no need to pass in arg's, the review instance already has them: (vehicle, tester, starRating, text)
         // in review instance, push 'this' review to vehicle reviews []
-        console.log(this.vehicle.reviews);
+        // console.log(this.vehicle.reviews);
         this.vehicle.reviews.push(this);
         // in review instance, push 'this' review to tester reviews []
         this.tester.reviews.push(this);
     }
+
+        // STATIC CLASS METHODS
+        static filterByStars(starRating, ...reviews) {
+            // console.log(reviews);
+            let result = reviews.filter(review => review.starRating === starRating);
+            // console.log(result);
+            return result;
+        }
 }
 
 // local testing
@@ -32,15 +40,21 @@ class Review {
 // let review3 = new Review(vehicle1, tester2, 5, "Good ride, but wish it charged faster.");
 // let review4 = new Review(vehicle2, tester1, 5, "Best car I've ever driven!");
 
-// review1.addReview();
-// review2.addReview();
-// review3.addReview();
-// review4.addReview();
+// // review1.addReview();
+// // review2.addReview();
+// // review3.addReview();
+// // review4.addReview();
 
-// console.log(vehicle1.reviews.length);
-// console.log(vehicle1.reviews.includes(review1));
-// console.log(tester1.reviews.length);
-// console.log(tester1.reviews.includes(review4));
+// // console.log(vehicle1.reviews.length);
+// // console.log(vehicle1.reviews.includes(review1));
+// // console.log(tester1.reviews.length);
+// // console.log(tester1.reviews.includes(review4));
+
+// let filtered = Review.filterByStars(3, review1, review2, review3);
+// console.log(filtered);
+// let filtered2 = Review.filterByStars(5, review1, review2, review3, review4);
+// console.log(filtered2);
+
 
 
 module.exports = Review;
