@@ -1,5 +1,5 @@
 class Vehicle {
-    constructor(modelName, year, price) {
+    constructor(modelName, year, price) {   // add reviews = []  ?
         this.modelName = modelName;
         this.year = year;
         this.price = price;

@@ -9,8 +9,9 @@ class Review {
         this.text = text;
     }
 
-    addReview() {   // (no need to pass in arg's, the review instance already has them: (vehicle, tester, starRating, text)
+    addReview(vehicle, tester) {   // (no need to pass in all arg's, the review instance already has them: (vehicle, tester, starRating, text)
         // in review instance, push 'this' review to vehicle reviews []
+        console.log(vehicle.reviews);
         vehicle.reviews.push(this);
         // in review instance, push 'this' review to tester reviews []
         tester.reviews.push(this);
@@ -23,8 +24,8 @@ let tester1 = new Tester("Bob Jones");
 let vehicle1 = new Vehicle("Toyota Prius", 2005, 23000);
 console.log(vehicle1.reviews);
 let review1 = new Review(vehicle1, tester1, 1, "Great car, excellent gas mileage!");
-review1.addReview();
-console.log(vehicle1.reviews);
+// review1.addReview();
 console.log(vehicle1);
+console.log(vehicle1.reviews);
 
 module.exports = Review;
