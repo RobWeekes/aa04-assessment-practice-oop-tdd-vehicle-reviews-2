@@ -1,9 +1,9 @@
 class Vehicle {
-    constructor(modelName, year, price) {   // add reviews = []  ?
+    constructor(modelName, year, price, reviews = []) {   // add reviews = []  ?
         this.modelName = modelName;
         this.year = year;
         this.price = price;
-        this.reviews = [];
+        this.reviews = reviews;
     }
 
     // INSTANCE METHODS

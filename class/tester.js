@@ -1,7 +1,7 @@
 class Tester {
-    constructor(name) {
+    constructor(name, reviews = []) {
         this.name = name;
-        this.reviews = [];
+        this.reviews = reviews;
     }
 }
 
