@@ -1,5 +1,6 @@
-const Vehicle = require('./vehicle');
-const Tester = require('./tester');
+// const Vehicle = require('./vehicle');
+// const Tester = require('./tester');  // this import will create a circular dependancy!
+// no need to import these classes here, they are passed in the addReview() method
 
 class Review {
     constructor(vehicle, tester, starRating, text) {
@@ -20,10 +21,11 @@ class Review {
 
         // STATIC CLASS METHODS
         static filterByStars(starRating, ...reviews) {
-            // console.log(reviews);
-            let result = reviews.filter(review => review.starRating === starRating);
-            // console.log(result);
-            return result;
+            return reviews.filter(review => review.starRating === starRating);
+            
+            // let result = reviews.filter(review => review.starRating === starRating);
+            // // console.log(result);
+            // return result;
         }
 }
 
@@ -54,6 +56,14 @@ class Review {
 // console.log(filtered);
 // let filtered2 = Review.filterByStars(5, review1, review2, review3, review4);
 // console.log(filtered2);
+
+
+// let tester = new Tester("Bob Jones");
+// let validVehicle = new Vehicle("Toyota Prius", 2005, 23000);
+
+// let submittedReview = tester.submitReview(validVehicle, 3, "Very cozy.");
+// console.log(submittedReview instanceof Review);
+
 
 
 

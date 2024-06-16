@@ -1,5 +1,5 @@
-const Tester = require('./tester');
-const Review = require('./review');
+// const Tester = require('./tester');
+// const Review = require('./review');
 
 class Vehicle {
     constructor(modelName, year, price) {   // add reviews = []  ?
@@ -37,8 +37,12 @@ class Vehicle {
         let reviews = this.reviews;
         // console.log(reviews);
 
+        // short way --
+        // return this.reviews.find(review => review.tester.name === name);
+
         for(let i = 0; i < reviews.length; i++) {
             let review = reviews[i];
+            // let review = this.reviews[i];    // can combine lets
         
             if(review.tester.name === name) {
                 // console.log(review);
@@ -67,24 +71,24 @@ class Vehicle {
 // console.log(vehicle2.getDetails());     // "The 2023 Trek 520 costs $1829 and has 0 reviews."
 
 
-let tester1 = new Tester("Bob Jones");
-let vehicle1 = new Vehicle("Toyota Prius", 2005, 23000);
-let review1 = new Review(vehicle1, tester1, 1, "Great car, excellent gas mileage!");
+// let tester1 = new Tester("Bob Jones");
+// let vehicle1 = new Vehicle("Toyota Prius", 2005, 23000);
+// let review1 = new Review(vehicle1, tester1, 1, "Great car, excellent gas mileage!");
 
-let tester2 = new Tester("Desiree Smith");
-let vehicle2 = new Vehicle("Dodge Ram", 1985, 300);
-let review2 = new Review(vehicle2, tester2, 3, "Lots of rust, but still reliable.");
+// let tester2 = new Tester("Desiree Smith");
+// let vehicle2 = new Vehicle("Dodge Ram", 1985, 300);
+// let review2 = new Review(vehicle2, tester2, 3, "Lots of rust, but still reliable.");
 
-let review3 = new Review(vehicle1, tester2, 5, "Good ride, but wish it charged faster.");
-let review4 = new Review(vehicle2, tester1, 5, "Best car I've ever driven!");
+// let review3 = new Review(vehicle1, tester2, 5, "Good ride, but wish it charged faster.");
+// let review4 = new Review(vehicle2, tester1, 5, "Best car I've ever driven!");
 
-review1.addReview();
-review2.addReview();
-review3.addReview();
-review4.addReview();
+// review1.addReview();
+// review2.addReview();
+// review3.addReview();
+// review4.addReview();
 
-let filtered1 = vehicle1.findReviewByTester("Bob Jones");
-console.log(filtered1);
+// let filtered1 = vehicle1.findReviewByTester("Bob Jones");
+// console.log(filtered1);
 
 
 module.exports = Vehicle;
